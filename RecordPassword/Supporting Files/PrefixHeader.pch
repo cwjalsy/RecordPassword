@@ -1,0 +1,85 @@
+//
+//  PrefixHeader.pch
+//  RecordPassword
+//
+//  Created by wenjim on 17/8/10.
+//  Copyright © 2017年 WenJim. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef DEBUG
+#define DLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define DLog(format, ...)
+#endif
+
+#import "UIBarButtonItem+Extension.h"
+
+//全局宏
+#import "UtilsMacros.h"
+#import "URLMacros.h"
+#import "FontAndColorMacros.h"
+#import "ThirdMacros.h"
+#import "CommonMacros.h"
+
+
+//基础类
+#import "AppDelegate.h"
+#import "AppDelegate+AppService.h"
+#import "RootViewController.h"
+#import "MCNavigationController.h"
+//#import "RootNavigationController.h"
+#import "MBProgressHUD+XY.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "CKNetworkHelper.h"
+#import "AppManager.h"
+//#import "ShareManager.h"
+
+//#import "IMManager.h"
+//#import "UIButton+XYButton.h"
+
+#import "UIView+Utils.h"
+#import "UIImageView+MCSetImageView.h"
+#import "UIImage+image.h"
+#import "UserManager.h"
+
+#import "UINavigationBar+Awesome.h" // 控制导航条的渐变色
+
+//第三方
+#import "YYKit.h"
+#import "MBProgressHUD.h"
+
+
+#import "Masonry.h"
+
+#import "MJExtension.h"
+#import <MJRefresh/MJRefresh.h>
+#import "ReactiveCocoa.h"
+
+
+// 新背景色
+#define NEW_BACKGROUND_COLOR WJColor(232, 233, 232, 1)
+
+//主题颜色
+#define THEME_COLOR WJColor(255, 210, 0, 1)
+
+// 按钮选中的颜色
+#define CHOOSESELECETD WJColor(184, 182, 231, 1)
+
+//屏幕宽高
+
+#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+
+//字体适配，高度适配
+#define CLHeightTranslator(padding) (padding * SCREENHEIGHT / 667.0)
+
+//宽度适配
+#define CLWidthTranslator(padding) (padding * SCREENWIDTH / 375.0)
+
+#endif /* PrefixHeader_pch */
